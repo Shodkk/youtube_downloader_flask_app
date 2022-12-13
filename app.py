@@ -26,7 +26,7 @@ def query_example():
 
     # Video Path
     video_name = "temp/" + video_name
-    return send_file(video_name, mimetype='video/mp4')
+    # return send_file(video_name, mimetype='video/mp4')
 
 
 if __name__ == '__main__':
