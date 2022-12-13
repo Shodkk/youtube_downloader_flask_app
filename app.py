@@ -25,9 +25,11 @@ def query_example():
     [video_name, title] = download_youtube_video(query_object_arr["link"])
 
     # Video Path
-    video_name = "temp/" + video_name
+    # video_name = "temp/" + video_name
+    video_name = video_name.replace(" ", "%20")
+    video_name = f"https://github.com/Shodkk/youtube_downloader_flask_app/blob/main/temp/{video_name}?raw=true"
     # return send_file(video_name, mimetype='video/mp4')
-
+    return send_file(video_name, mimetype='video/mp4', as_attachment=True, attachment_filename=title + ".mp4")
 
 if __name__ == '__main__':
     app.run()

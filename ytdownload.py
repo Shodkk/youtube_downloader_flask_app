@@ -12,7 +12,7 @@ import moviepy.editor as mp
 # import moviepy
 from moviepy.video.io.ffmpeg_tools import ffmpeg_extract_subclip
 from pytube import YouTube
-
+from push_to_github import deploy
 
 # Download youtube video from link and save to temp folder
 def download_youtube_video(link):
@@ -34,6 +34,7 @@ def download_youtube_video(link):
         video_name = os.listdir("./temp/")[1]
         if(video_name.split(".")[1] != "mp4"):
             video_name = os.listdir("./temp/")[2]
+    deploy()
     return [video_name, title]
 
 # # Resize video to 1080x1920
