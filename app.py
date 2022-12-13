@@ -3,7 +3,7 @@ import json
 import shutil
 import textwrap
 
-from flask import Flask, jsonify, request, send_file, render_template
+from flask import Flask, jsonify, request, send_file, render_template, redirect, url_for
 from PIL import Image, ImageDraw, ImageFont
 from ytdownload import download_youtube_video
 
@@ -30,7 +30,10 @@ def query_example():
     video_name = f"https://github.com/Shodkk/youtube_downloader_flask_app/blob/main/temp/{video_name}?raw=true"
     # return send_file(video_name, mimetype='video/mp4')
     # return send_file(video_name, mimetype='video/mp4', as_attachment=True, attachment_filename=title + ".mp4")
-    return render_template('/template/download.html', video_name=video_name, title=title)
+    # return render_template('/template/download.html', video_name=video_name, title=title)
+    # redirect url
+    return redirect(video_name, code=302)
+
 
 if __name__ == '__main__':
     app.run()
