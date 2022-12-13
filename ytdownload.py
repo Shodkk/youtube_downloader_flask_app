@@ -21,7 +21,7 @@ def download_youtube_video(link):
     url = YouTube(link)
     title = url.title
 
-    print("downloading....")
+    print("downloading...")
 
     video = url.streams.get_highest_resolution()
 
